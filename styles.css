@@ -131,11 +131,14 @@ p {
     padding: 40px;
 }
 .parallax-collage {
-  background-image: url('images/collage (1).jpg');
+  background-image: url('https://j-li928.github.io/collage.jpg');
+  background-color: #000080; 
   min-height: 500px;             
   background-attachment: fixed; 
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .parallax-color {
@@ -193,7 +196,7 @@ html {
 
 @font-face {
     font-family: 'TiemposHeadline';
-    src: url('../fonts/TiemposHeadline-Regular.woff2');
+    src: url('TiemposHeadline-Regular.woff2');
     font-weight: 100;
     font-style: normal;
 }
