@@ -1,28 +1,33 @@
+
 console.log("JavaScript is working!");
 
-
 document.addEventListener('DOMContentLoaded', function() {
-    const img = new Image();
-    img.onload = function() {
-        console.log('Image loaded successfully:', img.src);
-    };
-    img.onerror = function() {
-        console.error('Failed to load image:', img.src);
-        const alternativePaths = [
-            './collage.jpg',
-            'collage.jpg',
-            '/collage.jpg',
-            '../collage.jpg'
-        ];
+    const parallaxElement = document.querySelector('.parallax-collage');
+    
+    if (parallaxElement && window.innerWidth <= 768) {
+        const backgroundDiv = document.createElement('div');
+        backgroundDiv.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://j-li928.github.io/j-li928/collage.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        `;
         
-        for (let i = 0; i < alternativePaths.length; i++) {
-            const testImg = new Image();
-            testImg.onload = function() {
-                console.log('Alternative path worked:', testImg.src);
-                document.querySelector('.parallax-collage').style.backgroundImage = `url('${testImg.src}')`;
-            };
-            testImg.src = alternativePaths[i];
-        }
-    };
-    img.src = 'collage.jpg';
+        parallaxElement.style.position = 'relative';
+        parallaxElement.appendChild(backgroundDiv);
+        
+        parallaxElement.style.backgroundImage = 'none';
+        
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.3;
+            backgroundDiv.style.transform = `translateY(${rate}px)`;
+        });
+    }
 });

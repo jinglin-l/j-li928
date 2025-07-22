@@ -1,12 +1,11 @@
-title {    
-    color: #000080;
-    size: 20;
-    font-family:'TiemposHeadline'
-}
+
 body {
   background-color: #f4efe8;
   font-family: sans-serif;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -17,6 +16,8 @@ h1 {
     font-weight: 50;
     font-stretch: ultra-condensed;
     transform: scaleX(0.9);
+    margin: 0;
+    padding: 0;
 }
 h2{
     color: #000080;
@@ -26,7 +27,8 @@ h2{
     font-weight: 50;
     font-stretch: ultra-condensed;
     transform: scaleX(0.9);
-    padding-left: 60vh;
+    margin: 0;
+    text-align: center;
 }
 
 h3{
@@ -38,6 +40,8 @@ h3{
     font-stretch: ultra-condensed;
     transform: scaleX(0.9);
     justify-items: center;
+    margin: 0;
+    text-align: center;
 }
 
 .centered-text {
@@ -67,93 +71,26 @@ p {
     text-align: center;
 }
 
-.navbar {
-  background-color: transparent;
-  padding: 20px 30px;
-  position: fixed;      
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000; 
-}
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  justify-content: space-evenly;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links a {
-  color: #000080;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  font-family: 'TiemposHeadline';
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #5d5d9898;
-}
 
 .spacer{
-    padding: 150px;
-}
-
-.big-spacer{
     padding: 200px;
 }
 
-.content {
-  padding: 100px 20px;
-    background-color: #f4efe8;}
-
-.section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #f4efe8;
-    font-size: 3rem;
-    padding: 40px;
-}
-
-.navy-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color:#000080;
-    font-size: 3rem;
-    padding: 40px;
-}
-.parallax-collage {
-  background-image: url('collage.jpg');
-  background-color: #000080; 
-  min-height: 500px;             
-  background-attachment: fixed; 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-.parallax-color {
-    background-color: #000080;
-    width: 100%;
-    min-height: 100vh;             
-    background-attachment: fixed; 
-    background-position: center;
-    background-repeat: no-repeat;
+.big-spacer{
+    padding: 300px;
 }
 
 .content {
   padding: 100px 20px;
-    background-color: #f4efe8;
-}
+  background-color: #f4efe8;}
+
+
+
+
+
+
+
 
 .contact-icons {
   display: flex;
@@ -177,6 +114,8 @@ ul {
   padding-left: 150px;
   font-family: 'TiemposHeadline';
   color:#000080;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 li {
@@ -184,6 +123,7 @@ li {
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .line-divider {
@@ -194,6 +134,73 @@ html {
     margin: 10px auto;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+.character-text {
+    font-size: 17px;
+}
+
+.characters-div {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.scroll-container {
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+  padding: 30px;
+}
+
+.scroll-content {
+  display: flex;
+  width: 200%;
+  animation: scroll-left 7s linear infinite;
+}
+
+.scroll-content .nav-text {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0 45px;
+}
+
+.scroll-content .nav-text a {
+  color: #000080;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: 'TiemposHeadline';
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.scroll-content .nav-text a:hover {
+  color: #5d5d9898;
+}
+
+.scroll-container:hover .scroll-content {
+  animation-play-state: paused;
+}
+
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @font-face {
     font-family: 'TiemposHeadline';
     src: url('TiemposHeadline-Regular.woff2');
@@ -201,3 +208,109 @@ html {
     font-style: normal;
 }
 
+
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 60px;
+  }
+  
+  h2 {
+    font-size: 60px;
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 60px;
+  }
+  
+  .j-text {
+    font-size: 120px;
+  }
+  
+
+
+  
+  .spacer {
+    padding: 80px;
+  }
+  
+  .big-spacer {
+    padding: 120px;
+  }
+  
+  .content {
+    padding: 60px 15px;
+  }
+  
+  .contact-icons {
+    gap: 20px;
+    font-size: 30px;
+    margin: 30px 0;
+  }
+  
+  ul {
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 100%;
+  }
+  
+
+  
+  .centered-text {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 40px;
+  }
+  
+  h2 {
+    font-size: 40px;
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  h3 {
+    font-size: 40px;
+  }
+  
+  .j-text {
+    font-size: 80px;
+  }
+  
+
+  
+  .spacer {
+    padding: 50px;
+  }
+  
+  .big-spacer {
+    padding: 80px;
+  }
+  
+  .content {
+    padding: 40px 10px;
+  }
+  
+  .contact-icons {
+    gap: 15px;
+    font-size: 25px;
+    margin: 20px 0;
+  }
+  
+  ul {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 100%;
+  }
+  
+
+}
